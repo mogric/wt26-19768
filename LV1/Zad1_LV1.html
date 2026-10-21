@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radionica programiranja</title>
+</head>
+<body>
+
+    <h1>EESTEC Brucosijada</h1>
+
+    <section>
+        <h2>O događaju</h2>
+
+        <p>
+            Brucosijada je događaj koji vam pruža priliku da upoznate nove ljude, zabavite se i 
+            stvorite prijateljstva koja ce trajati i poslije skolovanja 
+        </p>
+
+        <p>
+            Događaj će se održati 28. oktobra 2026. godine,
+            od 19:00 do 22:00 sati, na Elektrotehničkom fakultetu
+            Univerziteta u Sarajevu.
+        </p>
+
+        <img
+            src="https://images.unsplash.com/photo-1608048608029-99c772d199ed?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+            alt="Poster za brucosijadu"
+            width="400"
+        >
+    </section>
+
+    <section>
+        <h2>Program i prijava</h2>
+
+        <p>Agenda brucosijade:</p>
+
+        <ul>
+            <li>19:00 Dolazak i upoznavnje</li>
+            <li>19:30 Game time</li>
+            <li>20:30 Karaoke time</li>
+            <li>22:00 Zadnji pozdravi</li>
+        </ul>
+
+        <p>
+            Više informacija o fakultetu možete pronaći na
+            <a href="https://www.etf.unsa.ba/">
+                zvaničnoj stranici Elektrotehničkog fakulteta
+            </a>.
+        </p>
+
+        <h3>Informacije o zainteresovanom učesniku</h3>
+
+        <p>Za prijavu potrebno je kontaktirati organizatora
+           putem e-maila eestec@example.com.</p>
+
+        <form>
+            <label for="ime">Ime i prezime:</label>
+            <input type="text" id="ime" name="ime">
+            <br><br>
+
+            <p>Da li ste brucos?</p>
+
+            <input type="radio" id="da" name="iskustvo" value="da">
+            <label for="da">Da</label>
+
+            <input type="radio" id="ne" name="iskustvo" value="ne">
+            <label for="ne">Ne</label>
+            <br><br>
+
+            <input type="checkbox" id="potvrda" name="potvrda">
+            <label for="potvrda">
+                Zainteresovan/a sam za pjevanje na karaoke-u.
+            </label>
+            <br><br>
+
+            <label for="termin">Da li zelite pomoci sa clean-upom</label>
+            <select id="termin" name="termin">
+                <option value="jutro">Da</option>
+                <option value="popodne">Ne</option>
+            </select>
+            <br><br>
+
+            <input type="submit" value="Pošalji">
+        </form>
+    </section>
+
+</body>
+</html>

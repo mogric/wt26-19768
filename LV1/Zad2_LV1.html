@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervacija termina</title>
+</head>
+<body>
+
+    <h1>Rezervacija termina u studentskom centru</h1>
+
+    <p>Popunite formu i odaberite željene usluge.</p>
+
+    <form>
+        <label for="ime">Ime i prezime:</label>
+        <input type="text" id="ime" name="ime">
+        <br><br>
+
+        <label for="nacin">Način konsultacije:</label>
+        <select id="nacin" name="nacin">
+            <option value="uzivo">Uživo</option>
+            <option value="online">Online</option>
+            <option value="telefon">Telefonom</option>
+        </select>
+        <br><br>
+
+        <p>Koje usluge želite koristiti?</p>
+
+        <input type="checkbox" id="savjetovanje"
+               name="usluge" value="savjetovanje">
+        <label for="savjetovanje">Akademsko savjetovanje</label>
+        <br>
+
+        <input type="checkbox" id="karijera"
+               name="usluge" value="karijera">
+        <label for="karijera">Karijerno savjetovanje</label>
+        <br>
+
+        <input type="checkbox" id="stipendije"
+               name="usluge" value="stipendije">
+        <label for="stipendije">Informacije o stipendijama</label>
+        <br><br>
+
+        <label for="napomena">Dodatna napomena:</label>
+        <input type="text" id="napomena" name="napomena">
+        <br><br>
+
+        <input type="submit" value="Rezerviši termin">
+    </form>
+
+</body>
+</html>

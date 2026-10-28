@@ -1,0 +1,36 @@
+/* Uklanjanje zadanih margina i tački iz liste */
+.nav-meni {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+/* Stil za linkove */
+.nav-meni li a {
+    /* Za prvi dio zadatka postaviti: display: inline; */
+    /* Za konačno rješenje postavljamo block: */
+    display: block; 
+    width: 200px;
+    
+    color: #ffffff;
+    background-color: #2c3e50;
+    padding: 12px 15px;
+    border: 2px solid #1a252f;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+/* Promjena izgleda na kursor (:hover) */
+.nav-meni li a:hover {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border-color: #c0392b;
+}
+
+/* Osnovni stil za odjeljke */
+.odjeljak {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}

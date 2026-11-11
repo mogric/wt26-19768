@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zadatak 1 - Kontrolna lista</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 650px; margin: 40px auto; padding: 0 16px; }
+li { margin: 12px 0; }
+.zavrseno { color: green; text-decoration: line-through; }
+button { margin-left: 10px; padding: 5px 10px; cursor: pointer; }
+#reset { margin-top: 15px; }
+</style>
+</head>
+<body>
+<h1>Kontrolna lista za pripremu ispita</h1>
+<p id="sažetak"></p>
+<ul id="lista">
+    <li>Pročitati predavanja</li>
+    <li>Ponoviti bilješke</li>
+    <li>Riješiti zadatke</li>
+    <li>Pregledati primjere</li>
+    <li>Pripremiti pitanja</li>
+</ul>
+<button id="reset">Vrati početno stanje</button>
+
+<script>
+const stavke = document.querySelectorAll("#lista li");
+const sazetak = document.getElementById("sažetak");
+
+function azurirajSazetak() {
+    let zavrseno = 0;
+
+    stavke.forEach(stavka => {
+        if (stavka.classList.contains("zavrseno")) {
+            zavrseno++;
+        }
+    });
+
+    sazetak.textContent = `Završeno: ${zavrseno} / ${stavke.length}`;
+}
+
+stavke.forEach(stavka => {
+    const dugme = document.createElement("button");
+    dugme.textContent = "Označi kao završeno";
+    stavka.appendChild(dugme);
+
+    dugme.addEventListener("click", function () {
+        stavka.classList.toggle("zavrseno");
+
+        if (stavka.classList.contains("zavrseno")) {
+            dugme.textContent = "Vrati u nezavršeno";
+        } else {
+            dugme.textContent = "Označi kao završeno";
+        }
+
+        azurirajSazetak();
+    });
+});
+
+document.getElementById("reset").addEventListener("click", function () {
+    stavke.forEach(stavka => {
+        stavka.classList.remove("zavrseno");
+        stavka.querySelector("button").textContent = "Označi kao završeno";
+    });
+
+    azurirajSazetak();
+});
+
+azurirajSazetak();
+</script>
+</body>
+</html>

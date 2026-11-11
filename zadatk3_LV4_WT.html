@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidencija troškova</title>
+</head>
+<body>
+
+    <h1>Evidencija troškova</h1>
+
+    <form id="forma">
+        <label>Naziv troška:</label>
+        <input type="text" id="naziv">
+
+        <br><br>
+
+        <label>Iznos:</label>
+        <input type="number" id="iznos">
+
+        <br><br>
+
+        <button type="submit">Dodaj</button>
+    </form>
+
+    <p id="greska"></p>
+
+    <p id="brojStavki"></p>
+
+    <table id="tabela" border="1">
+        <tr>
+            <th>Naziv</th>
+            <th>Iznos (KM)</th>
+        </tr>
+
+        <tr>
+            <td>Hrana</td>
+            <td>25</td>
+        </tr>
+
+        <tr>
+            <td>Prevoz</td>
+            <td>10</td>
+        </tr>
+
+        <tr>
+            <td>Pribor</td>
+            <td>15</td>
+        </tr>
+
+        <tr id="redZbira">
+            <td>Ukupno</td>
+            <td id="ukupno">50 KM</td>
+        </tr>
+    </table>
+
+    <script>
+        let forma = document.getElementById("forma");
+        let tabela = document.getElementById("tabela");
+
+        function azurirajPodatke() {
+            let zbir = 0;
+            let broj = 0;
+
+            for (let i = 1; i < tabela.rows.length - 1; i++) {
+                zbir += Number(tabela.rows[i].cells[1].textContent);
+                broj++;
+            }
+
+            document.getElementById("ukupno").textContent = zbir + " KM";
+            document.getElementById("brojStavki").textContent =
+                "Broj stavki: " + broj;
+        }
+
+        forma.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let naziv = document.getElementById("naziv").value.trim();
+            let iznos = document.getElementById("iznos").value;
+
+            if (naziv === "" || iznos === "" ||
+                !Number.isFinite(Number(iznos)) || Number(iznos) < 0) {
+
+                document.getElementById("greska").textContent =
+                    "Unesite ispravan naziv i nenegativan iznos!";
+
+                return;
+            }
+
+            document.getElementById("greska").textContent = "";
+
+            let red = tabela.insertRow(tabela.rows.length - 1);
+
+            let celija1 = red.insertCell(0);
+            let celija2 = red.insertCell(1);
+
+            celija1.textContent = naziv;
+            celija2.textContent = Number(iznos);
+
+            azurirajPodatke();
+
+            forma.reset();
+        });
+
+        azurirajPodatke();
+
+    </script>
+
+</body>
+</html>

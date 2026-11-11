@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zadatak 2 - Obavijest</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 650px; margin: 40px auto; padding: 0 16px; }
+label { display: block; margin-top: 12px; }
+input, textarea, select { width: 100%; box-sizing: border-box; padding: 8px; margin-top: 5px; }
+button { margin-top: 12px; padding: 8px 14px; cursor: pointer; }
+#greska { color: red; }
+#pregled { margin-top: 25px; padding: 16px; border: 1px solid #aaa; }
+#pregled.vazno { background: #fff0f0; border-left: 5px solid #c33; }
+#pregled.opcenito { background: #eef5ff; border-left: 5px solid #3674b5; }
+#kategorija { display: inline-block; padding: 4px 8px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>Kreiranje obavijesti</h1>
+
+<form id="forma">
+    <label for="naslov">Naslov obavijesti:</label>
+    <input type="text" id="naslov">
+
+    <label for="tekst">Tekst obavijesti:</label>
+    <textarea id="tekst" rows="4"></textarea>
+
+    <label for="kategorijaIzbor">Kategorija:</label>
+    <select id="kategorijaIzbor">
+        <option value="opcenito">Općenito</option>
+        <option value="vazno">Važno</option>
+    </select>
+
+    <button type="submit">Prikaži obavijest</button>
+    <button type="reset">Očisti formu</button>
+</form>
+
+<p id="greska"></p>
+
+<section id="pregled">
+    <h2 id="naslovPregleda">Pregled obavijesti</h2>
+    <p id="tekstPregleda">Ovdje će biti prikazan tekst obavijesti.</p>
+    <span id="kategorija">Kategorija</span>
+</section>
+
+<script>
+const forma = document.getElementById("forma");
+const greska = document.getElementById("greska");
+const pregled = document.getElementById("pregled");
+
+forma.addEventListener("submit", function (dogadjaj) {
+    dogadjaj.preventDefault();
+
+    const naslov = document.getElementById("naslov").value.trim();
+    const tekst = document.getElementById("tekst").value.trim();
+    const kategorija = document.getElementById("kategorijaIzbor").value;
+
+    if (naslov === "" || tekst === "") {
+        greska.textContent = "Naslov i tekst obavijesti moraju biti popunjeni.";
+        return;
+    }
+
+    greska.textContent = "";
+
+    document.getElementById("naslovPregleda").textContent = naslov;
+    document.getElementById("tekstPregleda").textContent = tekst;
+
+    const oznaka = document.getElementById("kategorija");
+    oznaka.textContent = kategorija === "vazno" ? "Važno" : "Općenito";
+
+    pregled.className = kategorija;
+    oznaka.style.backgroundColor = kategorija === "vazno" ? "#f5caca" : "#c9def5";
+});
+
+forma.addEventListener("reset", function () {
+    greska.textContent = "";
+});
+</script>
+</body>
+</html>
